@@ -3,7 +3,7 @@ import datetime
 import os
 
 class CLI(cmd.Cmd):
-    prompt = 'rons@app >>>'
+    prompt = 'rcons@app >>>'
     intro = 'Type help for a list of commands'
     def do_help(self, line):
         print("Commands:")
