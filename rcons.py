@@ -2,6 +2,7 @@ import cmd
 import datetime
 import os
 import shutil
+import requests
 
 class Console(cmd.Cmd):
     prompt = 'rcons@app >>> '
