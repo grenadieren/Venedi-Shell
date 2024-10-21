@@ -6,7 +6,7 @@ import requests
 
 class Console(cmd.Cmd):
     prompt = 'rcons@app >>> '
-    intro = 'Version 0.3 Type "Help" for help'
+    intro = 'Version 0.5. Type "Help" for help'
     def do_help(self, line):
         print("-----")
         print("This console is designed to mimic the Windows Terminal more than Bash, however, it has some original functionality.")
@@ -35,6 +35,7 @@ class Console(cmd.Cmd):
         print("flagger > easily set flags to any path")
         print("scand > Return an iterator of os.DirEntry objects")
         print("req > request metadata from a website")
+        print("req_cont > return only the content of a website")
         print("-----")
     def do_quit(self, line):
         return True
@@ -90,7 +91,7 @@ class Console(cmd.Cmd):
     def do_copy(self, line):
         src1 = input("Src?")
         dst1 = input("Dst?")
-        shutil.copyfile(src1, dst1)
+        shutil.copyfile(src1, dst1) 
     
     def do_rmtr(self, line):
         rm1 = input("Path?")
@@ -122,14 +123,21 @@ class Console(cmd.Cmd):
     def do_scand(self, line):
         var1 = input("Path?")
         print(os.scandir(var1))
-
+        
     def do_req(self, line):
-        url1 = input("URL:")
-        req1 = requests.get(url1)
-        print(req1.url)
-        print(req1.headers)
-        print(req1.cookies)
-        print(req1.connection)
+         url1 = input("URL:")
+         req1 = requests.get(url1)
+         print(req1.url)
+         print(req1.headers)
+         print(req1.cookies)
+         print(req1.connection)
     
+    def do_req_cont(self, line):
+         url1 = input("URL:")
+         req1 = requests.get(url1)
+         print("-----")
+         print(req1.content)
+         print("-----")
+
 if __name__ == '__main__':
     Console().cmdloop()
