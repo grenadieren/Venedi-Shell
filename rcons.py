@@ -33,6 +33,7 @@ class Console(cmd.Cmd):
         print("termsiz > get the terminal size")
         print("flagger > easily set flags to any path")
         print("scand > Return an iterator of os.DirEntry objects")
+        print("req > request metadata from a website")
         print("-----")
     def do_quit(self, line):
         return True
@@ -120,6 +121,14 @@ class Console(cmd.Cmd):
     def do_scand(self, line):
         var1 = input("Path?")
         print(os.scandir(var1))
+
+    def do_req(self, line):
+        url1 = input("URL:")
+        req1 = requests.get(url1)
+        print(req1.url)
+        print(req1.headers)
+        print(req1.cookies)
+        print(req1.connection)
     
 if __name__ == '__main__':
     Console().cmdloop()
