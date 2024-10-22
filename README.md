@@ -21,6 +21,7 @@ They will increase as the project grows.
 pip install shutil
 pip install cmd
 pip install requests
+pip install psutil
 ```
 
 ## FAQ
