@@ -3,14 +3,12 @@ import datetime
 import os
 import shutil
 import requests
+import psutil
 
 class Console(cmd.Cmd):
-    prompt = 'rcons@app >>> '
-    intro = 'Version 0.5. Type "Help" for help'
+    prompt = 'venedi@shell>'
+    intro = 'Version 0.6. Type "Help" for help'
     def do_help(self, line):
-        print("-----")
-        print("This console is designed to mimic the Windows Terminal more than Bash, however, it has some original functionality.")
-        print("There are some bugs that have been found, they will be fixed soon")
         print("-----")
         print("Commands:")
         print("help > list of commands")
@@ -21,7 +19,7 @@ class Console(cmd.Cmd):
         print("mkdir > make a directory in the chosen path")
         print("cdir > change your working directory")
         print("getcwd > get your working directory")
-        print("osinfo > get information about your computer/os")
+        print("diskinfo > get information about your hard drive(s)")
         print("rename > rename a directory/file")
         print("exec > execute a file")
         print("copy > copy the chosen file")
@@ -36,6 +34,9 @@ class Console(cmd.Cmd):
         print("scand > Return an iterator of os.DirEntry objects")
         print("req > request metadata from a website")
         print("req_cont > return only the content of a website")
+        print("cpuinfo > display info about your cpu")
+        print("virm > display virtual memory")
+        print("bt > get your boot time")
         print("-----")
     def do_quit(self, line):
         return True
@@ -71,7 +72,7 @@ class Console(cmd.Cmd):
         print(os.getcwdb())
         print("(last is a bytestring)")
         
-    def do_osinfo(self, line):
+    def do_diskinfo(self, line):
         print(os.listdrives())
         print(os.listvolumes())
     
@@ -138,6 +139,17 @@ class Console(cmd.Cmd):
          print("-----")
          print(req1.content)
          print("-----")
-
+    
+    def do_cpuinfo(self, line):
+        print(psutil.cpu_stats())
+        print(psutil.cpu_freq())
+        print(psutil.cpu_count())
+        
+    def do_virm(self, line):
+        print(psutil.virtual_memory())
+    
+    def do_bt(self, line):
+        print(psutil.boot_time())
+        
 if __name__ == '__main__':
     Console().cmdloop()
