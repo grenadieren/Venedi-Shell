@@ -37,6 +37,7 @@ class Console(cmd.Cmd):
         print("cpuinfo > display info about your cpu")
         print("virm > display virtual memory")
         print("bt > get your boot time")
+        print("netc > display network information")
         print("-----")
     def do_quit(self, line):
         return True
@@ -150,6 +151,9 @@ class Console(cmd.Cmd):
     
     def do_bt(self, line):
         print(psutil.boot_time())
+    
+    def do_netc(self, line):
+        print(psutil.net_connections())
         
 if __name__ == '__main__':
     Console().cmdloop()
