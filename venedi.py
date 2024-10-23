@@ -7,10 +7,9 @@ import psutil
 
 class Console(cmd.Cmd):
     prompt = 'venedi@shell>'
-    intro = 'Version 0.6. Type "Help" for help'
+    intro = 'Version 0.7. Type "Help" for help'
     def do_help(self, line):
         print("-----")
-        print("Commands:")
         print("help > list of commands")
         print("quit > quit the console")
         print("time > get some information about the time")
