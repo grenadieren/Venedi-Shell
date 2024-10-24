@@ -6,7 +6,7 @@
 
 - Basic file management utilities
 - Web requests/scraping
-- 20+ Commands
+- 25+ Commands
 - Worked on every day
 - Running python code, inside the shell
 
