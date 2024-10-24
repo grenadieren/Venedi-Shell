@@ -9,7 +9,7 @@ class Console(cmd.Cmd):
     prompt = 'venedi@shell>'
     intro = 'Version 0.7. Type "Help" for help'
     def do_help(self, line):
-        print("-----")
+        print("Commands:")
         print("help > list of commands")
         print("quit > quit the console")
         print("time > get some information about the time")
@@ -37,6 +37,8 @@ class Console(cmd.Cmd):
         print("virm > display virtual memory")
         print("bt > get your boot time")
         print("netc > display network information")
+        print("pids > return all process ids running on the system")
+        print("userdata > display the users on your system")
         print("-----")
     def do_quit(self, line):
         return True
@@ -153,6 +155,12 @@ class Console(cmd.Cmd):
     
     def do_netc(self, line):
         print(psutil.net_connections())
+    
+    def do_pids(self, line):
+        print(psutil.pids())
+
+    def do_userdata(self, line):
+        print(psutil.users())
         
 if __name__ == '__main__':
     Console().cmdloop()
