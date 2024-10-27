@@ -6,8 +6,8 @@ import requests
 import psutil
 
 class Console(cmd.Cmd):
-    prompt = 'venedi@shell>'
-    intro = 'Version 0.7. Type "Help" for help'
+    prompt = os.getcwd() + '> '
+    intro = 'Version 0.9. Type "Help" for help'
     def do_help(self, line):
         print("Commands:")
         print("help > list of commands")
@@ -146,6 +146,7 @@ class Console(cmd.Cmd):
         print(psutil.cpu_stats())
         print(psutil.cpu_freq())
         print(psutil.cpu_count())
+        print(psutil.cpu_percent())
         
     def do_virm(self, line):
         print(psutil.virtual_memory())
@@ -161,6 +162,7 @@ class Console(cmd.Cmd):
 
     def do_userdata(self, line):
         print(psutil.users())
+    
         
 if __name__ == '__main__':
     Console().cmdloop()
