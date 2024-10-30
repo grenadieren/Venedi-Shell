@@ -7,7 +7,6 @@
 - Basic file management utilities
 - Web requests/scraping
 - 25+ Commands
-- Worked on every day
 - Running python code, inside the shell
 
 [![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://opensource.org/licenses/)
